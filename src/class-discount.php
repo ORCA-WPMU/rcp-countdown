@@ -8,7 +8,6 @@
 
 namespace Svbk\WP\Plugins\RCP\Countdown;
 
-use Svbk\WP\Helpers;
 use WP_Session;
 use DateTimeImmutable;
 use DateInterval;
@@ -142,7 +141,7 @@ class Discount {
 	 */
 	public function scripts() {
 
-		Helpers\Theme\CdnScripts::register_script( 'jquery.countdown', 'jquery.countdown.js' );
+		wp_register_script( 'jquery.countdown', 'https://cdn.jsdelivr.net/jquery.countdown/2.2/jquery.countdown.min.js' );
 
 		$session = WP_Session::get_instance();
 		$subscription = rcp_get_subscription_levels( 'active' );
