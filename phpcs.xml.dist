@@ -8,16 +8,13 @@
 	<!-- Set a description for this ruleset. -->
 	<description>A custom set of code standard rules to check for WordPress themes.</description>
 
-	<!-- Pass some flags to PHPCS:
-		 p flag: Show progress of the run.
-		 s flag: Show sniff codes in all reports.
-		 v flag: Print verbose output.
-		 n flag: Do not print warnings.
-	-->
 	<arg value="psvn"/>
 
+	<exclude-pattern type="relative">^/tests/*</exclude-pattern>
+	<exclude-pattern type="relative">^/vendor/*</exclude-pattern>
+
 	<!-- Only check the PHP files. JS files are checked separately with JSCS and JSHint. -->
-	<arg name="extensions" value="php"/>
+	<arg name="extensions" value="php,js"/>
 	
 	<!-- Check all files in this directory and the directories below it. -->
 	<file>.</file>
@@ -27,6 +24,7 @@
 		<exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" />
 		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
 		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
+		<exclude name="WordPress.VIP" />
 	</rule>
 
 	<!-- Verify that the text_domain is set to the desired text-domain.
@@ -47,6 +45,6 @@
 	</rule>
 
 	<!-- Include sniffs for PHP cross-version compatibility. -->
-	<config name="testVersion" value="5.2-99.0"/>
+	<config name="testVersion" value="5.6-99.0"/>
 	<rule ref="PHPCompatibility"/>
 </ruleset>
