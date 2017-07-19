@@ -1,0 +1,84 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-19 13:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: src/class-discount.php:64
+msgid "Main Discount"
+msgstr ""
+
+#: src/class-discount.php:82
+msgid "The discount applied dureing the countdown."
+msgstr ""
+
+#: src/class-discount.php:87
+msgid "Discount Duration"
+msgstr ""
+
+#: src/class-discount.php:92
+msgid "Minute(s)"
+msgstr ""
+
+#: src/class-discount.php:93
+msgid "Hours(s)"
+msgstr ""
+
+#: src/class-discount.php:94
+msgid "Days(s)"
+msgstr ""
+
+#: src/class-discount.php:97
+msgid ""
+"Length of time the countdown discount should last. Enter 0 for no discount."
+msgstr ""
+
+#: src/class-paybutton.php:83
+msgid "Pay Button"
+msgstr ""
+
+#: src/class-paybutton.php:95
+msgid "Membership Level"
+msgstr ""
+
+#: src/class-paybutton.php:101 src/class-paybutton.php:106
+msgid "Show Countdown"
+msgstr ""
+
+#: src/class-paybutton.php:111
+msgid "Payment Page"
+msgstr ""
+
+#: src/class-paybutton.php:120
+msgid "Button Label"
+msgstr ""
+
+#: src/class-paybutton.php:169
+msgid "Membership level not found"
+msgstr ""
+
+#. Name of the plugin
+msgid "Restrict Content Pro - Countdown Offer"
+msgstr ""
+
+#. Description of the plugin
+msgid "Enable Pay Buttons with offer Countdown"
+msgstr ""
+
+#. Author of the plugin
+msgid "Silverback Studio"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://www.silverbackstudio.it/"
+msgstr ""
