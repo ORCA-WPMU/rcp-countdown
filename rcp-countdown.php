@@ -40,3 +40,33 @@ function svbk_rcp_countdown_init() {
 }
 
 add_action( 'plugins_loaded', 'svbk_rcp_countdown_init' );
+
+
+add_action( 'admin_init', 'svbk_rcp_countdown_check_parent' );
+
+/**
+ * Checks if required dependency plugins are installed
+ *
+ * @return void
+ */
+function svbk_rcp_countdown_check_parent() {
+
+	if ( is_admin() && ! is_plugin_active( 'wp-session-manager/wp-session-manager.php' ) && current_user_can( 'activate_plugins' ) ) {
+		add_action( 'admin_notices', 'svbk_rcp_countdown_plugin_notice' );
+
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+
+		if ( isset( $_GET['activate'] ) ) {
+			unset( $_GET['activate'] );
+		}
+	}
+}
+
+/**
+ * Displays notices for not active plugins
+ *
+ * @return void
+ */
+function svbk_rcp_countdown_plugin_notice() {
+	?><div class="error"><p><?php esc_html_e( 'Sorry, but Restrict Content Pro  - Countdown requires the WP Session Manager plugin to be installed and active.', 'svbk-rcp-countdown' ); ?></p></div><?php
+}
