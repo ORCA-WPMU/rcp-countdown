@@ -182,22 +182,18 @@ class PayButton extends Base {
 		endif;
 
 		$output['listPrice'] = '<div class="price regular"><span class="amount">' .
-								rcp_currency_filter(
-									number_format( rcp_get_subscription_price( $attr['membership_level'] ), rcp_currency_decimal_filter() )
-								) .
-							'</span><span class="price-note">*IVA compresa</span></div>';
+				rcp_currency_filter(
+					number_format( rcp_get_subscription_price( $attr['membership_level'] ), rcp_currency_decimal_filter() )
+				) .
+			'</span><span class="price-note">*IVA compresa</span></div>';
 
-		if ( $attr['show_discount'] ) {
+		if ( $attr['show_discount'] && is_object( $main_discount ) ) {
 
-			if ( is_object( $main_discount ) ) {
-				// calculate the after-discount price.
-				$discounts    = new RCP_Discounts();
-				$full_price = $discounts->calc_discounted_price( $full_price, $main_discount->amount, $main_discount->unit );
-				$output['discountedPrice'] = '<div class="price discounted"><span class="amount">' . rcp_currency_filter( number_format( $full_price, rcp_currency_decimal_filter() ) ) . '</span><span class="price-note">*IVA compresa</span></div>';
-			}
+			$discounts    = new RCP_Discounts();
+			$full_price = $discounts->calc_discounted_price( $full_price, $main_discount->amount, $main_discount->unit );
+			$output['discountedPrice'] = '<div class="price discounted"><span class="amount">' . rcp_currency_filter( number_format( $full_price, rcp_currency_decimal_filter() ) ) . '</span><span class="price-note">*IVA compresa</span></div>';
 
-			$output['button'] = '<a href="' . get_permalink( $attr['payment_page'] ) . '" class="button" data-dc="' . esc_attr( $main_discount->code ) . '" >' . esc_html( $attr['button_label'] ) . '</a>';
-
+			$output['button'] = '<a href="' . get_permalink( $attr['payment_page'] ) . '" class="button" data-dc="' . esc_attr( $main_discount->code ) . '" >' . esc_html( $attr['button_label'] ) . '</a>';				
 		} else {
 			$output['button'] = '<a href="' . get_permalink( $attr['payment_page'] ) . '" class="button" >' . esc_html( $attr['button_label'] ) . '</a>';
 		}
