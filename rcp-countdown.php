@@ -31,6 +31,16 @@ function svbk_rcp_countdown_init() {
 	}
 
 	$svbk_rcp_countdown = new Countdown\Discount();
+	
+	add_action( 'rcp_add_subscription_form', array( $svbk_rcp_countdown, 'level_discount_duration_form' ) );
+	add_action( 'rcp_edit_subscription_form', array( $svbk_rcp_countdown, 'level_discount_duration_form' ) );
+
+	add_action( 'rcp_add_subscription', array( $svbk_rcp_countdown, 'level_discount_duration_save' ), 10, 2 );
+	add_action( 'rcp_pre_edit_subscription_level', array( $svbk_rcp_countdown, 'level_discount_duration_save' ), 10, 2 );
+
+	add_action( 'rcp_registration_init', array( $svbk_rcp_countdown, 'apply_discount' ), 9 );
+
+	add_action( 'wp_enqueue_scripts', array( $svbk_rcp_countdown, 'scripts' ) );
 
 	if ( ! class_exists( 'Svbk\WP\Plugins\RCP\Countdown\PayButton' ) ) {
 		require_once 'src/class-paybutton.php';

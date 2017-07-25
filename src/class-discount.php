@@ -11,29 +11,12 @@ namespace Svbk\WP\Plugins\RCP\Countdown;
 use WP_Session;
 use DateTimeImmutable;
 use DateInterval;
+use RCP_Registration;
 
 /**
  * Main RCP Countdown class
  */
 class Discount {
-
-	/**
-	 * Constructor class
-	 *
-	 * @return void
-	 */
-	public function __construct() {
-
-		add_action( 'rcp_add_subscription_form', array( $this, 'level_discount_duration_form' ) );
-		add_action( 'rcp_edit_subscription_form', array( $this, 'level_discount_duration_form' ) );
-
-		add_action( 'rcp_add_subscription', array( $this, 'level_discount_duration_save' ), 10, 2 );
-		add_action( 'rcp_pre_edit_subscription_level', array( $this, 'level_discount_duration_save' ), 10, 2 );
-
-		add_action( 'rcp_registration_init', array( $this, 'apply_discount' ), 9 );
-
-		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
-	}
 
 	/**
 	 * Prints the HTML fields in subscrioption's admin panel
