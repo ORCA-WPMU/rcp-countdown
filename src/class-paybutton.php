@@ -103,7 +103,7 @@ class PayButton extends Base {
 				'type'     => 'checkbox',
 			),
 			array(
-				'label'    => esc_html__( 'Show Countdown', 'svbk-rcp-countdown' ),
+				'label'    => esc_html__( 'Show Discount', 'svbk-rcp-countdown' ),
 				'attr'     => 'show_discount',
 				'type'     => 'checkbox',
 			),
