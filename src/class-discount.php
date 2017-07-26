@@ -300,7 +300,7 @@ class Discount {
 		$subscription_id = $registration->get_subscription();
 		$main_discount = self::main_discount( $subscription_id );
 
-		if ( $main_discount && self::has_expired( $level_id ) ) {
+		if ( $main_discount && self::has_expired( $subscription_id ) ) {
 			$registration->add_discount( $main_discount->code );
 		}
 
