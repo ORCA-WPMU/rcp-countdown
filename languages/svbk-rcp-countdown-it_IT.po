@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Restrict Content Pro - Countdown Offer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-19 13:18+0000\n"
-"PO-Revision-Date: 2017-07-19 13:19+0000\n"
+"POT-Creation-Date: 2017-07-28 15:27+0000\n"
+"PO-Revision-Date: 2017-07-28 15:28+0000\n"
 "Last-Translator: Silverback Studio <webmaster@silverbackstudio.it>\n"
 "Language-Team: Italian\n"
 "Language: it-IT\n"
@@ -13,56 +13,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: src/class-discount.php:82
-msgid "The discount applied during the countdown."
-msgstr "Il codice sconto applicato durante il conto alla rovescia."
+#: rcp-countdown.php:80
+msgid ""
+"Sorry, but Restrict Content Pro  - Countdown requires the WP Session Manager "
+"plugin to be installed and active."
+msgstr ""
+"Siamo Spiacenti ma \"Restrict Content Pro  - Countdown\" richiede che il "
+"plugin WP Session Manager sia installato ed attivo."
 
-#: src/class-discount.php:64
+#: src/class-paybutton.php:131
+msgid "Show Discount"
+msgstr "Mostra Sconto"
+
+#: src/class-discount.php:46
 msgid "Main Discount"
 msgstr "Sconto principale"
 
-#: src/class-discount.php:87
+#: src/class-discount.php:64
+msgid "The discount applied during the countdown."
+msgstr "Il codice sconto applicato durante il conto alla rovescia."
+
+#: src/class-discount.php:69
 msgid "Discount Duration"
 msgstr "Durata dello sconto"
 
-#: src/class-discount.php:92
+#: src/class-discount.php:74
 msgid "Minute(s)"
 msgstr "Minuto/i"
 
-#: src/class-discount.php:93
+#: src/class-discount.php:75
 msgid "Hours(s)"
 msgstr "Ore"
 
-#: src/class-discount.php:94
+#: src/class-discount.php:76
 msgid "Days(s)"
 msgstr "Giorno/i"
 
-#: src/class-discount.php:97
+#: src/class-discount.php:79
 msgid ""
 "Length of time the countdown discount should last. Enter 0 for no discount."
 msgstr "Durata dello sconto. Inserisci 0 per nessuno sconto"
 
-#: src/class-paybutton.php:83
+#: src/class-paybutton.php:108
 msgid "Pay Button"
 msgstr "Pulsante di pagamento"
 
-#: src/class-paybutton.php:95
+#: src/class-paybutton.php:120
 msgid "Membership Level"
 msgstr "Livello di abbonamento"
 
-#: src/class-paybutton.php:101 src/class-paybutton.php:106
+#: src/class-paybutton.php:126
 msgid "Show Countdown"
 msgstr "Mostra conto alla rovescia"
 
-#: src/class-paybutton.php:111
+#: src/class-paybutton.php:136
 msgid "Payment Page"
 msgstr "Pagina di Pagamento"
 
-#: src/class-paybutton.php:120
+#: src/class-paybutton.php:145
 msgid "Button Label"
 msgstr "Etichetta del pulsante"
 
-#: src/class-paybutton.php:169
+#: src/class-paybutton.php:194
 msgid "Membership level not found"
 msgstr "Livello di abbonamento non esistente"
 

@@ -184,13 +184,12 @@ class Discount {
 
 		if ( $user_id && ( $user_expiration = get_user_meta( $user_id, $key, true ) ) ) {
 			$expire = $user_expiration;
-		} else {
+		 } else { 
 			$session = WP_Session::get_instance();
 			if ( isset( $session[ $key ] ) ) {
 				$expire = $session[ $key ];
 			}
 		}
-
 		return apply_filters( 'svbk_rcp_countdown_get_user_expiration', $expire, $level, $user_id );
 	}
 
