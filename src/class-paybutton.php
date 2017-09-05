@@ -202,7 +202,7 @@ class PayButton extends Base {
 
 		$output['wrapperStart'] = '<aside ' . self::renderClasses( $this->getClasses( $attr, $subscription, $main_discount ) ) . '>';
 
-		if ( $attr['show_countdown'] ) :
+		if ( filter_var($attr['show_countdown'], FILTER_VALIDATE_BOOLEAN) ) :
 			$output['countdown'] = '<div class="countdown level-' . esc_attr( $subscription->id ) . '" data-level="' . esc_attr( $subscription->id ) . '" >00:00:00:00</div>';
 		endif;
 
@@ -214,7 +214,7 @@ class PayButton extends Base {
 
 		$output['content'] = '<div class="description">' . $content . '</div>';
 
-		if ( $attr['show_discount'] && is_object( $main_discount ) ) {
+		if ( filter_var($attr['show_discount'], FILTER_VALIDATE_BOOLEAN) && is_object( $main_discount ) ) {
 
 			$discounts    = new RCP_Discounts();
 			$full_price = $discounts->calc_discounted_price( $full_price, $main_discount->amount, $main_discount->unit );
