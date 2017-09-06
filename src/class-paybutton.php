@@ -167,7 +167,7 @@ class PayButton extends Base {
 			$classes[] = 'level-' . $subscription->role;
 		}
 
-		if ( $attr['show_discount'] && $main_discount && Discount::has_expired( $subscription->id ) ) {
+		if ( $attr['show_discount'] && $main_discount && ! Discount::has_expired( $subscription->id ) ) {
 			$classes[] = 'has-discount';
 		}
 
