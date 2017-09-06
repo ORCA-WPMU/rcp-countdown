@@ -265,7 +265,7 @@ class Discount {
 		$expiration = self::get_user_expiration( $level, $user_id );
 		$now = new DateTimeImmutable( 'NOW' );
 
-		return $expiration && ( $now < $expiration );
+		return $expiration && (  $expiration > $now );
 	}
 
 	/**
@@ -299,7 +299,7 @@ class Discount {
 		$subscription_id = $registration->get_subscription();
 		$main_discount = self::main_discount( $subscription_id );
 
-		if ( $main_discount && self::has_expired( $subscription_id ) ) {
+		if ( $main_discount /*&& !self::has_expired( $subscription_id ) */ ) {
 			$registration->add_discount( $main_discount->code );
 		}
 
