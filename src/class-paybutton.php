@@ -42,30 +42,6 @@ class PayButton extends Base {
 	public $classes = array( 'pay-button' );
 
 	/**
-	 * Number of decimals in prices.
-	 *
-	 * @access public
-	 * @var int
-	 */
-	public $decimals = 2;
-
-	/**
-	 * Thousands separator.
-	 *
-	 * @access public
-	 * @var string
-	 */
-	public $thousands_sep = ',';
-
-	/**
-	 * Deciamal separator.
-	 *
-	 * @access public
-	 * @var string
-	 */
-	public $dec_point = '.';
-
-	/**
 	 *
 	 * Shortcode interface defaults.
 	 *
@@ -205,9 +181,11 @@ class PayButton extends Base {
 			$output['countdown'] = '<div class="countdown level-' . esc_attr( $subscription->id ) . '" data-level="' . esc_attr( $subscription->id ) . '" >00:00:00:00</div>';
 		endif;
 
-		$output['listPrice'] = '<div class="price regular"><span class="amount">' .
-				rcp_currency_filter( $full_price ) .
-			'</span><span class="price-note">*IVA compresa</span></div>';
+		$output['listPrice'] = 
+			'<div class="price regular">
+				<span class="amount">' . rcp_currency_filter( $full_price ) . '</span>
+				<span class="price-note">*IVA compresa</span>
+			</div>';
 
 		$output['content'] = '<div class="description">' . $content . '</div>';
 
@@ -215,7 +193,11 @@ class PayButton extends Base {
 
 			$discounts    = new RCP_Discounts();
 			$full_price = $discounts->calc_discounted_price( $full_price, $main_discount->amount, $main_discount->unit );
-			$output['discountedPrice'] = '<div class="price discounted"><span class="amount">' . rcp_currency_filter( $full_price ) . '</span><span class="price-note">*IVA compresa</span></div>';
+			
+			$output['discountedPrice'] = '<div class="price discounted">
+				<span class="amount">' . rcp_currency_filter( $full_price ) . '</span>
+				<span class="price-note">*IVA compresa</span>
+			</div>';
 
 			$output['button'] = '<a href="' . get_permalink( $attr['payment_page'] ) . '" class="button" data-dc="' . esc_attr( $main_discount->code ) . '" >' . esc_html( $attr['button_label'] ) . '</a>';
 		} else {
