@@ -9,7 +9,6 @@
 namespace Svbk\WP\Plugins\RCP\Countdown;
 
 use RCP_Discounts;
-use Svbk\WP\Helpers;
 use Svbk\WP\Shortcakes\Shortcake as Base;
 
 /**
@@ -207,9 +206,7 @@ class PayButton extends Base {
 		endif;
 
 		$output['listPrice'] = '<div class="price regular"><span class="amount">' .
-				rcp_currency_filter(
-					number_format( rcp_get_subscription_price( $attr['membership_level'] ), rcp_currency_decimal_filter( $this->decimals ), $this->dec_point, $this->thousands_sep )
-				) .
+				rcp_currency_filter( $full_price ) .
 			'</span><span class="price-note">*IVA compresa</span></div>';
 
 		$output['content'] = '<div class="description">' . $content . '</div>';
@@ -218,7 +215,7 @@ class PayButton extends Base {
 
 			$discounts    = new RCP_Discounts();
 			$full_price = $discounts->calc_discounted_price( $full_price, $main_discount->amount, $main_discount->unit );
-			$output['discountedPrice'] = '<div class="price discounted"><span class="amount">' . rcp_currency_filter( number_format( $full_price, rcp_currency_decimal_filter( $this->decimals ), $this->dec_point, $this->thousands_sep ) ) . '</span><span class="price-note">*IVA compresa</span></div>';
+			$output['discountedPrice'] = '<div class="price discounted"><span class="amount">' . rcp_currency_filter( $full_price ) . '</span><span class="price-note">*IVA compresa</span></div>';
 
 			$output['button'] = '<a href="' . get_permalink( $attr['payment_page'] ) . '" class="button" data-dc="' . esc_attr( $main_discount->code ) . '" >' . esc_html( $attr['button_label'] ) . '</a>';
 		} else {

@@ -124,7 +124,7 @@ class Discount {
 	 */
 	public function scripts() {
 
-		wp_register_script( 'jquery.countdown', 'https://cdn.jsdelivr.net/jquery.countdown/2.2/jquery.countdown.min.js' );
+		wp_register_script( 'jquery.countdown', 'https://cdn.jsdelivr.net/npm/jquery-countdown@2.2.0/dist/jquery.countdown.min.js' );
 
 		$session = WP_Session::get_instance();
 		$subscription = rcp_get_subscription_levels( 'active' );
