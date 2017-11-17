@@ -54,6 +54,7 @@ class PayButton extends Base {
 		'payment_page' => '',
 		'show_countdown' => true,
 		'show_discount' => true,
+		'price_description' => '',
 		'button_label' => '',
 	);
 
@@ -68,6 +69,7 @@ class PayButton extends Base {
 		'wrapperStart',
 		'listPrice',
 		'discountedPrice',
+		'price_description',
 		'countdown',
 		'button',
 		'content',
@@ -115,6 +117,11 @@ class PayButton extends Base {
 					'post_type' => 'page',
 				),
 				'multiple' => false,
+			),
+			array(
+				'label'  => esc_html__( 'Price Description', 'svbk-rcp-countdown' ),
+				'attr'   => 'price_description',
+				'type'   => 'text',
 			),
 			array(
 				'label'  => esc_html__( 'Button Label', 'svbk-rcp-countdown' ),
@@ -187,6 +194,10 @@ class PayButton extends Base {
 				<span class="price-note">*IVA compresa</span>
 			</div>';
 
+		if( $attr['price_description'] ) {
+			$output['price_description'] = '<div class="price-description">' . $attr['price_description'] . '</div>';
+		}
+		
 		$output['content'] = '<div class="description">' . $content . '</div>';
 
 		if ( filter_var($attr['show_discount'], FILTER_VALIDATE_BOOLEAN) && is_object( $main_discount ) ) {
