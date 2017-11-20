@@ -40,6 +40,22 @@ class PayButton extends Base {
 	 * @var string $classes The shortcode CSS classes applied to wrapper element
 	 */
 	public $classes = array( 'pay-button' );
+	
+	/**
+	 * Apply or remove taxes, to remove taxes use -1.22 (-22%).
+	 *
+	 * @access public
+	 * @var float $taxes 
+	 */
+	public $tax_rate = 1.22;
+	
+	/**
+	 * Append a string after prive.
+	 *
+	 * @access public
+	 * @var string $tax_note 
+	 */
+	public $tax_note = '';	
 
 	/**
 	 *
@@ -190,8 +206,8 @@ class PayButton extends Base {
 
 		$output['listPrice'] = 
 			'<div class="price regular">
-				<span class="amount">' . rcp_currency_filter( $full_price ) . '</span>
-				<span class="price-note">*IVA compresa</span>
+				<span class="amount">' . rcp_currency_filter( $full_price / $this->tax_rate )  . '</span>
+				<span class="price-note">' . $this->tax_note .'</span>
 			</div>';
 
 		if( $attr['price_description'] ) {
@@ -206,8 +222,8 @@ class PayButton extends Base {
 			$full_price = $discounts->calc_discounted_price( $full_price, $main_discount->amount, $main_discount->unit );
 			
 			$output['discountedPrice'] = '<div class="price discounted">
-				<span class="amount">' . rcp_currency_filter( $full_price ) . '</span>
-				<span class="price-note">*IVA compresa</span>
+				<span class="amount">' . rcp_currency_filter( $full_price / $this->tax_rate ) . '</span>
+				<span class="price-note">' . $this->tax_note . '</span>
 			</div>';
 
 			$output['button'] = '<a href="' . get_permalink( $attr['payment_page'] ) . '" class="button" data-dc="' . esc_attr( $main_discount->code ) . '" >' . esc_html( $attr['button_label'] ) . '</a>';
