@@ -245,7 +245,7 @@ class Discount {
 			$discount_duration = intval( $discount_duration_base ) * MINUTE_IN_SECONDS;
 		}
 
-		return apply_filters( 'svbk_rcp_countdown_level_exipire', $discount_duration, $level, $discount_duration_base, $discount_duration_unit );
+		return apply_filters( 'svbk_rcp_countdown_level_expire', $discount_duration, $level, $discount_duration_base, $discount_duration_unit );
 	}
 
 	/**
@@ -297,9 +297,10 @@ class Discount {
 	public function apply_discount( RCP_Registration $registration ) {
 
 		$subscription_id = $registration->get_subscription();
+		
 		$main_discount = self::main_discount( $subscription_id );
 
-		if ( $main_discount && ! self::has_expired( $subscription_id ) ) {
+		if ( ! $registration->get_discounts() && $main_discount && ! self::has_expired( $subscription_id ) ) {
 			$registration->add_discount( $main_discount->code );
 		}
 

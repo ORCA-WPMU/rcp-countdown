@@ -11,6 +11,7 @@
     ],
     "minimum-stability": "beta",
     "require": {
+        "silverbackstudio/wp-shortcakes": "^3.3.0",        
         "restrictcontentpro/restrict-content-pro": "^2.9.6"
     },
     "require-dev": {
