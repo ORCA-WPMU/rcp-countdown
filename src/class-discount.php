@@ -12,6 +12,8 @@ use WP_Session;
 use DateTimeImmutable;
 use DateInterval;
 use RCP_Registration;
+use RCP_Discounts;
+use DateTime;
 
 /**
  * Main RCP Countdown class
@@ -181,6 +183,22 @@ class Discount {
 
 		$key = 'svbk_rcp_ctd_' . $level->role . '_discount_expires';
 		$expire = null;
+		
+		$discount = self::main_discount($level->id);
+		
+		if( $discount ) {
+
+			$discounts_db = new \RCP_Discounts();
+			
+			$expire = $discounts_db->get_expiration( $discount->id );
+			
+			if ( $expire ) {
+				$expdate = DateTime::createFromFormat('Y-m-d', $expire);
+				$expdate->setTime(23, 59, 59);
+				return $expdate;
+			}
+			
+		}
 
 		if ( $user_id && ( $user_expiration = get_user_meta( $user_id, $key, true ) ) ) {
 			$expire = $user_expiration;
@@ -190,6 +208,7 @@ class Discount {
 				$expire = $session[ $key ];
 			}
 		}
+		
 		return apply_filters( 'svbk_rcp_countdown_get_user_expiration', $expire, $level, $user_id );
 	}
 
