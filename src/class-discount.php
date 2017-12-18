@@ -49,10 +49,11 @@ class Discount {
 			</th>
 			<td>
 				<select name="main_discount" id="main_discount">
+					<option value="" <?php selected( $defaults['main_discount'], '' )?> ><?php esc_html_e('- Select -', 'svbk-rcp-countdown') ?></option>
 				<?php
 					$discounts = rcp_get_discounts();
 
-				foreach ( $discounts as $discount ) :
+					foreach ( $discounts as $discount ) :
 					// limit discounts to only those applicable to this level.
 					if ( $level && ! empty( $discount->subscription_id ) && ( $level->id !== $discount->subscription_id ) ) {
 						continue;
