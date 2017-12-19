@@ -18,11 +18,12 @@
 				.on('update.countdown', function (event) {
 
 					if (event.elapsed) {
+						console.log('.prices.level-' + $( this ).data( 'level' ));
 						$( '.prices.level-' + $( this ).data( 'level' ) ).removeClass( 'has-discount' );
 						$( this ).countdown( 'pause' );
 					}
 
-					$( this ).text( event.strftime( '%D:%H:%M:%S' ) );
+					$( this ).html( event.strftime( $( this ).data( 'template' ) || '%D:%H:%M:%S' ) );
 				});
 		}
 	}

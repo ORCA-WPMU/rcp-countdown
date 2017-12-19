@@ -14,7 +14,7 @@ use Svbk\WP\Shortcakes\Shortcake as Base;
 /**
  * Paybutton Countdown class
  */
-class PayButton extends Base {
+class Countdown extends Base {
 
 	/**
 	 * The shortcode ID.
@@ -22,7 +22,7 @@ class PayButton extends Base {
 	 * @access public
 	 * @var string $shortcode_id Description.
 	 */
-	public $shortcode_id = 'pay_button';
+	public $shortcode_id = 'level_countdown';
 
 	/**
 	 *
@@ -39,7 +39,7 @@ class PayButton extends Base {
 	 * @access public
 	 * @var string $classes The shortcode CSS classes applied to wrapper element
 	 */
-	public $classes = array( 'pay-button' );
+	public $classes = array( 'level-countdown' );
 	
 	/**
 	 * Apply or remove taxes, to remove taxes use -1.22 (-22%).
@@ -98,7 +98,7 @@ class PayButton extends Base {
 	 * @return string
 	 */
 	public function title() {
-		return __( 'Pay Button', 'svbk-rcp-countdown' );
+		return __( 'Subscription Countdown', 'svbk-rcp-countdown' );
 	}
 
 	/**
@@ -114,35 +114,6 @@ class PayButton extends Base {
 				'attr'   => 'membership_level',
 				'type'   => 'select',
 				'options' => wp_list_pluck( rcp_get_subscription_levels( 'active' ), 'name', 'id' ),
-			),
-			array(
-				'label'    => esc_html__( 'Show Countdown', 'svbk-rcp-countdown' ),
-				'attr'     => 'show_countdown',
-				'type'     => 'checkbox',
-			),
-			array(
-				'label'    => esc_html__( 'Show Discount', 'svbk-rcp-countdown' ),
-				'attr'     => 'show_discount',
-				'type'     => 'checkbox',
-			),
-			array(
-				'label'    => esc_html__( 'Payment Page', 'svbk-rcp-countdown' ),
-				'attr'     => 'payment_page',
-				'type'     => 'post_select',
-				'query'    => array(
-					'post_type' => 'page',
-				),
-				'multiple' => false,
-			),
-			array(
-				'label'  => esc_html__( 'Price Description', 'svbk-rcp-countdown' ),
-				'attr'   => 'price_description',
-				'type'   => 'text',
-			),
-			array(
-				'label'  => esc_html__( 'Button Label', 'svbk-rcp-countdown' ),
-				'attr'   => 'button_label',
-				'type'   => 'text',
 			),
 		);
 	}
