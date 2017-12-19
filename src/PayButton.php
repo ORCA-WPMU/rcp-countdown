@@ -191,8 +191,13 @@ class PayButton extends Base {
 			$classes[] = 'level-' . $subscription->id;
 		}
 
-		if ( $attr['show_discount'] && $main_discount && ! $discounts->is_expired( $main_discount->id ) ) {
+		if ( filter_var($attr['show_discount'], FILTER_VALIDATE_BOOLEAN) && $main_discount && ! $discounts->is_expired( $main_discount->id ) ) {
 			$classes[] = 'has-discount';
+			
+			if (filter_var($attr['show_countdown'], FILTER_VALIDATE_BOOLEAN) ) {
+				$classes[] = 'has-countdown';
+			}			
+			
 		}
 
 		return $classes;
@@ -267,7 +272,7 @@ class PayButton extends Base {
 			
 			$expiration = $discounts->get_expiration( $main_discount->id );
 			
-			if ( filter_var($attr['show_countdown'], FILTER_VALIDATE_BOOLEAN) && $expiration) :
+			if ( filter_var($attr['show_countdown'], FILTER_VALIDATE_BOOLEAN) && $expiration) {
 
 				$now = new DateTime();
 				$expire = new DateTime( $expiration ); 
@@ -278,7 +283,8 @@ class PayButton extends Base {
 					data-level="' . esc_attr( $subscription->id ) . '"
 					data-template="' . esc_attr( $this->countdown_template ) . '"
 					>' . $remaining->format( $this->countdown_template ) .  '</div>';
-			endif;			
+					
+			} 
 			
 			$output['discountedPrice'] = $this->priceTemplate( array( 'price', 'after-discount' ), $discount_price, $attr['after_discount_prefix'] );
 			
