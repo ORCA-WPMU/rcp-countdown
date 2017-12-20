@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Restrict Content Pro - Countdown Offer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-28 15:27+0000\n"
-"PO-Revision-Date: 2017-07-28 15:28+0000\n"
-"Last-Translator: Silverback Studio <webmaster@silverbackstudio.it>\n"
+"POT-Creation-Date: 2017-12-20 10:29+0000\n"
+"PO-Revision-Date: 2017-12-20 10:33+0000\n"
+"Last-Translator: silverbackstudio <webmaster@silverbackstudio.it>\n"
 "Language-Team: Italian\n"
 "Language: it-IT\n"
 "Plural-Forms: nplurals=2; plural=n != 1\n"
@@ -13,7 +13,61 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: rcp-countdown.php:80
+#: rcp-countdown.php:101
+msgid "- Select -"
+msgstr "- Seleziona -"
+
+#: src/PayButton.php:133
+msgid "Price Prefix"
+msgstr "Prefisso Prezzo"
+
+#: src/PayButton.php:148
+msgid "Price Before Discount Prefix"
+msgstr "Prefisso prezzo non scontato"
+
+#: src/PayButton.php:153
+msgid "Price After Discount Prefix"
+msgstr "Prefisso prezzo scontato"
+
+#: src/PayButton.php:263
+msgid "ERROR: Page not found"
+msgstr "ERRORE: Pagina non trovata"
+
+#: src/Countdown.php:101
+msgid "Subscription Countdown"
+msgstr "Countdown Abbomanento"
+
+#: src/Expiration.php:76
+msgid "Discount Expiration Date"
+msgstr "Data Scadenza Sconto"
+
+#: src/Expiration.php:94
+msgid "Template (optional)"
+msgstr "Modello frase (opzionale)"
+
+#: src/Expiration.php:98
+#, php-format
+msgid "Ex: valid until %s"
+msgstr "Es: valido fino al %s"
+
+#: src/Expiration.php:100
+#, php-format
+msgid ""
+"Insert a %s where you need the date to be printed. Example: valid until %s. "
+"becomes: valid until 1 Jan 2017."
+msgstr ""
+"Inserisci un %s dove vuoi che venga stampata la data. Esempio: valido fino "
+"al %s. diventa: valido fino al 1 Gen 2017."
+
+#: src/Expiration.php:103
+msgid "Show if Expired"
+msgstr "Mostra anche se scaduto"
+
+#: src/Expiration.php:132
+msgid "WARNING: Membership level not found"
+msgstr "Questo abbonamento non e' più disponibile."
+
+#: rcp-countdown.php:72
 msgid ""
 "Sorry, but Restrict Content Pro  - Countdown requires the WP Session Manager "
 "plugin to be installed and active."
@@ -21,60 +75,39 @@ msgstr ""
 "Siamo Spiacenti ma \"Restrict Content Pro  - Countdown\" richiede che il "
 "plugin WP Session Manager sia installato ed attivo."
 
-#: src/class-paybutton.php:131
-msgid "Show Discount"
-msgstr "Mostra Sconto"
-
-#: src/class-discount.php:46
+#: rcp-countdown.php:97
 msgid "Main Discount"
 msgstr "Sconto principale"
 
-#: src/class-discount.php:64
+#: rcp-countdown.php:116
 msgid "The discount applied during the countdown."
 msgstr "Il codice sconto applicato durante il conto alla rovescia."
 
-#: src/class-discount.php:69
-msgid "Discount Duration"
-msgstr "Durata dello sconto"
-
-#: src/class-discount.php:74
-msgid "Minute(s)"
-msgstr "Minuto/i"
-
-#: src/class-discount.php:75
-msgid "Hours(s)"
-msgstr "Ore"
-
-#: src/class-discount.php:76
-msgid "Days(s)"
-msgstr "Giorno/i"
-
-#: src/class-discount.php:79
-msgid ""
-"Length of time the countdown discount should last. Enter 0 for no discount."
-msgstr "Durata dello sconto. Inserisci 0 per nessuno sconto"
-
-#: src/class-paybutton.php:108
+#: src/PayButton.php:115
 msgid "Pay Button"
 msgstr "Pulsante di pagamento"
 
-#: src/class-paybutton.php:120
+#: src/PayButton.php:127 src/Countdown.php:113 src/Expiration.php:88
 msgid "Membership Level"
 msgstr "Livello di abbonamento"
 
-#: src/class-paybutton.php:126
+#: src/PayButton.php:138
 msgid "Show Countdown"
 msgstr "Mostra conto alla rovescia"
 
-#: src/class-paybutton.php:136
+#: src/PayButton.php:143
+msgid "Show Discount"
+msgstr "Mostra Sconto"
+
+#: src/PayButton.php:158
 msgid "Payment Page"
 msgstr "Pagina di Pagamento"
 
-#: src/class-paybutton.php:145
+#: src/PayButton.php:167
 msgid "Button Label"
 msgstr "Etichetta del pulsante"
 
-#: src/class-paybutton.php:194
+#: src/PayButton.php:242 src/Countdown.php:163
 msgid "Membership level not found"
 msgstr "Livello di abbonamento non esistente"
 
