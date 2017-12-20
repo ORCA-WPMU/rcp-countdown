@@ -91,9 +91,13 @@ class Expiration extends Base {
 				'options' => wp_list_pluck( rcp_get_subscription_levels( 'active' ), 'name', 'id' ),
 			),
 			'template' => array(
-				'label'  => esc_html__( 'Template', 'svbk-rcp-countdown' ),
+				'label'  => esc_html__( 'Template (optional)', 'svbk-rcp-countdown' ),
 				'attr'   => 'template',
 				'type'   => 'text',
+				'meta'   => array(
+					'placeholder' => __('Ex: valid until %s', 'svbk-rcp-countdown'),
+				),
+				'description' => esc_html__( 'Insert a %s where you need the date to be printed. Example: valid until %s. becomes: valid until 1 Jan 2017.', 'svbk-rcp-countdown' ),
 			),			
 			'show_if_expired' => array(
 				'label'  => esc_html__( 'Show if Expired', 'svbk-rcp-countdown' ),
