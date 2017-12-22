@@ -18,6 +18,7 @@ Text Domain: svbk-rcp-countdown
 
 use RCP_Discounts;
 use DateTime;
+use RCP_Registration;
 
 define( 'SVBK_RCP_COUNTDOWN_PLUGIN_FILE', __FILE__ );
 
